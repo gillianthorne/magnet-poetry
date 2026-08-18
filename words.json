@@ -3161,7 +3161,7 @@
       "word": "seattle torrent",
       "xPos": 0,
       "yPos": 0
-    }, 
+    },
     {
       "id": "word-528",
       "word": "pwhl detroit",
@@ -3173,16 +3173,142 @@
       "word": "pwhl hamilton",
       "xPos": 0,
       "yPos": 0
-    }, 
+    },
     {
       "id": "word-530",
       "word": "pwhl san jose",
       "xPos": 0,
       "yPos": 0
-    }, 
+    },
     {
       "id": "word-531",
       "word": "pwhl vegas",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-532",
+      "word": "forward",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-533",
+      "word": "green",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-534",
+      "word": "orangutan",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-535",
+      "word": "fruitful",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-536",
+      "word": "absurd",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-537",
+      "word": "axolotl",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-538",
+      "word": "hat",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-539",
+      "word": "helmet",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-540",
+      "word": "skate",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-541",
+      "word": "ice",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-542",
+      "word": "icing",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-543",
+      "word": "offsides",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-544",
+      "word": "penalty",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-545",
+      "word": "puck",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-546",
+      "word": "curl",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-547",
+      "word": "broom",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-548",
+      "word": "canada",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-549",
+      "word": "win",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-550",
+      "word": "beat",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-551",
+      "word": "lose",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-552",
+      "word": "loss",
       "xPos": 0,
       "yPos": 0
     }
