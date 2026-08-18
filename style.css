@@ -1,5 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 .word {
     padding: 5px;
-    background-color: #FFFDD0;
+    background-color: #fffeee;
     position: absolute;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-radius: 4px;
+}
+
+#background {
+    width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+#fridge {
+    width: 100%;
+    height: 100vh;
+    background-color: dimgrey;
+    margin: 0 auto;
 }
