@@ -1,4 +1,7 @@
+// import { html2canvas } from "./html2canvas.js";
+
 const app = document.querySelector("#app");
+const saveBtn = document.querySelector("#save-btn")
 
 // import text list
 // same thing as an api call but with a local json file
@@ -94,6 +97,27 @@ function shuffle(array) {
   }
 }
 
+// https://stackoverflow.com/a/51478809
+function saveAs(uri, fileName) {
+    var link = document.createElement("a");
+
+    if (typeof link.download === "string") {
+        link.href = uri;
+        link.download = fileName;
+
+        // firefox requires the link to be in the body
+        document.body.appendChild(link);
+        
+        // simulate clicking the link
+        link.click();
+
+        // and now we remove the link from te body
+        document.body.removeChild(link);
+    } else {
+        window.open(uri);
+    }
+}
+
 
 async function main() {
     // set a variable for the word list
@@ -147,17 +171,29 @@ async function main() {
 
     // when the mouseup (magnet is dropped)
     window.addEventListener('mouseup', () => {
-        // if we have an active word, put it down, remove its shadow, and unselect it as the active word
+        // if we have an active word, put it down, remove its shadow, rotate it between -5 and 5 degrees, and unselect it as the active word
         if (activeWord) {
             activeWord.style.zIndex = 0;
             activeWord.style.boxShadow = "none"
-            
-            activeWord.style.transform = "rotate(" + (Math.floor(Math.random() * 21) - 10) + "deg)";
+
+            activeWord.style.transform = "rotate(" + (Math.floor(Math.random() * 11) - 5) + "deg)";
 
             activeWord = null;
         }
         
     })
+
+// https://stackoverflow.com/a/51478809
+    saveBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        html2canvas(app, {
+            width: 600,
+            height: window.innerHeight,
+            x: (window.innerWidth / 2) - 300
+        }).then(function(canvas) {
+            saveAs(canvas.toDataURL(), `magnet-poetry-${Date.now().toString()}.png`)
+        });
+    });
 }
 
 
