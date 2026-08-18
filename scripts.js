@@ -7,12 +7,13 @@ async function loadWordList() {
     const data = await response.json();
     const wordList = data["words"];
 
-    // shuffle the list so the words are randomized, then take the first 100
+    // shuffle the list so the words are randomized, then take the first 90
     shuffle(wordList);
-    return wordList.splice(0, 100);
+    return wordList.splice(0, 90);
 }
 
 // scatters all words
+// NO LONGER USED
 function scatterWords(words) {
     // for every word
     words.forEach(word => {
@@ -20,15 +21,57 @@ function scatterWords(words) {
         var newX = Math.floor(Math.random() * (window.innerWidth - 100)) + 50;
         var newY = Math.floor(Math.random() * (window.innerHeight - 120)) + 50;
 
-        // while the new x is within 300px of the midpoint (600px wide blank canvas), redo the math
-        while (newX > ((window.innerWidth / 2) - 300) && (newX < (window.innerWidth / 2) + 300)) {
-            newX = Math.floor(Math.random() * (window.innerWidth - 100)) + 50;
+        // while the new x is within 300px of the midpoint (600px wide blank canvas), redo the math (400 on the left because we're checking the leftmost point)
+        while (newX > ((window.innerWidth / 2) - 400) && (newX < (window.innerWidth / 2) + 300)) {
+            newX = Math.floor(Math.random() * (window.innerWidth - 100)) + 10;
         }
 
         // the xPos and yPos aren't super important, they just make it easier to give the words a space, this is the only time they're used
         word["xPos"] = newX;
         word["yPos"] = newY;
 })
+}
+
+// this makes the words nice and into columns
+function organizeWords(words) {
+    // divide into four subsets
+    const subset1 = words.slice(0, 15);
+    const subset2 = words.slice(15, 30);
+    const subset3 = words.slice(30, 45);
+    const subset4 = words.slice(45, 60);
+    const subset5 = words.slice(60, 75);
+    const subset6 = words.slice(75, 90);
+
+    // for each subset we set a fixed xPos (column) and then a dynamic yPos based on how far down the list it is
+    subset1.forEach((word, index) => {
+        word["xPos"] = 20;
+        word["yPos"] = 20 + 50 * index;
+    })
+
+    subset2.forEach((word, index) => {
+        word["xPos"] = 200;
+        word["yPos"] = 20 + 50 * index;
+    })
+
+    subset3.forEach((word, index) => {
+        word["xPos"] = 380;
+        word["yPos"] = 20 + 50 * index;
+    })
+
+    subset4.forEach((word, index) => {
+        word["xPos"] = (window.innerWidth / 2) + 400;
+        word["yPos"] = 20 + 50 * index;
+    })
+
+    subset5.forEach((word, index) => {
+        word["xPos"] = (window.innerWidth / 2) + 580;
+        word["yPos"] = 20 + 50 * index;
+    })
+
+    subset6.forEach((word, index) => {
+        word["xPos"] = (window.innerWidth / 2) + 760;
+        word["yPos"] = 20 + 50 * index;
+    })
 }
 
 // Source - https://stackoverflow.com/a/2450976
@@ -62,7 +105,7 @@ async function main() {
     var offsetX, offsetY;
 
     // scatter the words throughout allowed space on the screen
-    scatterWords(allWords);
+    organizeWords(allWords);
 
      // iterate through the word list and add each one to the screen
     allWords.forEach(word => {
@@ -108,6 +151,9 @@ async function main() {
         if (activeWord) {
             activeWord.style.zIndex = 0;
             activeWord.style.boxShadow = "none"
+            
+            activeWord.style.transform = "rotate(" + (Math.floor(Math.random() * 21) - 10) + "deg)";
+
             activeWord = null;
         }
         
