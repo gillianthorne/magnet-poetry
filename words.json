@@ -3116,49 +3116,73 @@
     },
     {
       "id": "word-520",
-      "word": "sceptres",
+      "word": "toronto sceptres",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-521",
-      "word": "victoire",
+      "word": "montreal victoire",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-522",
-      "word": "charge",
+      "word": "ottawa charge",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-523",
-      "word": "goldeneyes",
+      "word": "vancouver goldeneyes",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-524",
-      "word": "frost",
+      "word": "minnesota frost",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-525",
-      "word": "sirens",
+      "word": "new york sirens",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-526",
-      "word": "fleet",
+      "word": "boston fleet",
       "xPos": 0,
       "yPos": 0
     },
     {
       "id": "word-527",
-      "word": "torrent",
+      "word": "seattle torrent",
+      "xPos": 0,
+      "yPos": 0
+    }, 
+    {
+      "id": "word-528",
+      "word": "pwhl detroit",
+      "xPos": 0,
+      "yPos": 0
+    },
+    {
+      "id": "word-529",
+      "word": "pwhl hamilton",
+      "xPos": 0,
+      "yPos": 0
+    }, 
+    {
+      "id": "word-530",
+      "word": "pwhl san jose",
+      "xPos": 0,
+      "yPos": 0
+    }, 
+    {
+      "id": "word-531",
+      "word": "pwhl vegas",
       "xPos": 0,
       "yPos": 0
     }
