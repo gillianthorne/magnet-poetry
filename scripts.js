@@ -1,7 +1,6 @@
 // import { html2canvas } from "./html2canvas.js";
 
 const app = document.querySelector("#app");
-const tray = document.querySelector("#magnet-tray");
 const saveBtn = document.querySelector("#save-btn")
 
 // import text list
@@ -169,7 +168,7 @@ async function main() {
         if (window.innerWidth >= 640) wordElement.style.top = word["yPos"] + "px";
         else wordElement.style.top = "calc(70vh + " + word["yPos"] + "px)"
         wordElement.style.backgroundColor = setColour();
-        tray.appendChild(wordElement);
+        app.appendChild(wordElement);
 
         // each word element needs to listen for mousedown
         wordElement.addEventListener("mousedown", (e) => {
@@ -187,37 +186,10 @@ async function main() {
             // don't let the element do its default action
             e.preventDefault();
         });
-
-        // this is the exact same but for mobile
-        wordElement.addEventListener("touchstart", (e) => {
-            // active word and the change in x/y
-            activeWord = wordElement;
-            // offsetX = mouse's x position - wordelement's leftmost x position: basically just makes sure the block ends at the exact right location
-            // and doesn't shift left or right because the mouse doesn't pick it up at exactly (0, 0)
-            offsetX = e.clientX - wordElement.getBoundingClientRect().left;
-            offsetY = e.clientY - wordElement.getBoundingClientRect().top;
-
-            // bring it to the very front, add a drop shadow to mimic being "picked up"
-            wordElement.style.zIndex = 1000;
-            wordElement.style.boxShadow = "2px 2px 3px black";
-
-            // don't let the element do its default action
-            e.preventDefault();
-        })
     });
 
     // when the mouse moves
     window.addEventListener('mousemove', (e) => {
-        // if there's no word selected do nothing
-        if (!activeWord) return;
-
-        // otherwise, set the style offset to the current mouse position - the offset shift
-        activeWord.style.left = (e.clientX - offsetX) + "px";
-        activeWord.style.top = (e.clientY - offsetY) + "px";
-    })
-
-    // again the same for mobile
-    window.addEventListener("touchmove", (e) => {
         // if there's no word selected do nothing
         if (!activeWord) return;
 
@@ -238,19 +210,6 @@ async function main() {
             activeWord = null;
         }
         
-    })
-
-    // one more duplicate function
-    window.addEventListener("touchend", () => {
-        // if we have an active word, put it down, remove its shadow, rotate it between -5 and 5 degrees, and unselect it as the active word
-        if (activeWord) {
-            activeWord.style.zIndex = 0;
-            activeWord.style.boxShadow = "none"
-
-            activeWord.style.transform = "rotate(" + (Math.floor(Math.random() * 11) - 5) + "deg)";
-
-            activeWord = null;
-        }
     })
 
 // https://stackoverflow.com/a/51478809

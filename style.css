@@ -171,48 +171,11 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-
-
-  /* magnet tray -- spawn/scroll area below the fridge. Same
-     nested-div ring technique as the fridge, no box-shadow. */
-  .tray-outline {
-    width: 600px;
-    background: var(--fridge-outline);
-    border-radius: 20px;
-    padding: 5px;
-  }
- 
-  .tray-trim {
-    background: var(--fridge-trim);
-    border-radius: 16px;
-    padding: 6px;
-  }
- 
-  .tray {
-    background: var(--panel-bg);
-    border-radius: 12px;
-    min-height: 2300px;
-    padding: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 10px;
-  }
- 
-  .tray-label {
-    width: 100%;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--handle-dark);
-    margin-bottom: 4px;
-  }
  
   /* mobile: fridge and tray shrink to fit narrow screens instead
      of forcing horizontal scroll at a fixed 600px */
   @media (max-width: 640px) {
-    .fridge-outline,
-    .tray-outline {
+    .fridge-outline {
       width: calc(100vw - 24px);
     }
  
