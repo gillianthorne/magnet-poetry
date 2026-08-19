@@ -118,6 +118,12 @@ function saveAs(uri, fileName) {
     }
 }
 
+function setColour() {
+    const colours = ["#F2B705", "#F2789F", "#6EC6E0", "#F2884B"];
+
+    const index = Math.floor(Math.random() * 4);
+    return colours[index];
+}
 
 async function main() {
     // set a variable for the word list
@@ -140,6 +146,7 @@ async function main() {
         wordElement.id = word["id"];
         wordElement.style.left = word["xPos"] + "px";
         wordElement.style.top = word["yPos"] + "px";
+        wordElement.style.backgroundColor = setColour();
         app.appendChild(wordElement);
 
         // each word element needs to listen for mousedown
@@ -185,11 +192,12 @@ async function main() {
 
 // https://stackoverflow.com/a/51478809
     saveBtn.addEventListener("click", (e) => {
+        console.log(window.innerWidth);
         e.preventDefault();
         html2canvas(app, {
             width: 600,
-            height: window.innerHeight,
-            x: (window.innerWidth / 2) - 300
+            height: window.innerHeight
+            // x: (window.innerWidth / 2) - 300
         }).then(function(canvas) {
             saveAs(canvas.toDataURL(), `magnet-poetry-${Date.now().toString()}.png`)
         });
