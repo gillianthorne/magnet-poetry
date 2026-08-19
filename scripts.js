@@ -1,6 +1,7 @@
 // import { html2canvas } from "./html2canvas.js";
 
 const app = document.querySelector("#app");
+const tray = document.querySelector("#magnet-tray");
 const saveBtn = document.querySelector("#save-btn")
 
 // import text list
@@ -36,7 +37,7 @@ function scatterWords(words) {
 }
 
 // this makes the words nice and into columns
-function organizeWords(words) {
+function organizeWordsDesktop(words) {
     // divide into four subsets
     const subset1 = words.slice(0, 15);
     const subset2 = words.slice(15, 30);
@@ -74,6 +75,25 @@ function organizeWords(words) {
     subset6.forEach((word, index) => {
         word["xPos"] = (window.innerWidth / 2) + 760;
         word["yPos"] = 20 + 50 * index;
+    })
+}
+
+// mobile: narrower screen, so just two columns instead of desktop's six.
+// Tray is scrollable, so yPos just keeps growing downward per column --
+// no need to wrap into a third column.
+function organizeWordsMobile(words) {
+    const midpoint = Math.ceil(words.length / 2);
+    const subset1 = words.slice(0, midpoint);
+    const subset2 = words.slice(midpoint);
+
+    subset1.forEach((word, index) => {
+        word["xPos"] = 40;
+        word["yPos"] = 50 * index + 60;
+    })
+
+    subset2.forEach((word, index) => {
+        word["xPos"] = window.innerWidth / 2;
+        word["yPos"] = 50 * index + 60;
     })
 }
 
@@ -135,7 +155,8 @@ async function main() {
     var offsetX, offsetY;
 
     // scatter the words throughout allowed space on the screen
-    organizeWords(allWords);
+    if (window.innerWidth >= 640) organizeWordsDesktop(allWords);
+    else organizeWordsMobile(allWords);
 
      // iterate through the word list and add each one to the screen
     allWords.forEach(word => {
@@ -145,9 +166,10 @@ async function main() {
         wordElement.classList.add("word");
         wordElement.id = word["id"];
         wordElement.style.left = word["xPos"] + "px";
-        wordElement.style.top = word["yPos"] + "px";
+        if (window.innerWidth >= 640) wordElement.style.top = word["yPos"] + "px";
+        else wordElement.style.top = "calc(70vh + " + word["yPos"] + "px)"
         wordElement.style.backgroundColor = setColour();
-        app.appendChild(wordElement);
+        tray.appendChild(wordElement);
 
         // each word element needs to listen for mousedown
         wordElement.addEventListener("mousedown", (e) => {
