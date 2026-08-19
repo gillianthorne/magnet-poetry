@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magnetic Poetry</title>
     <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
-
-        <div id="background">
-            <div id="fridge"></div>
+        <div class="fridge-outline" id="fridge-capture">
+            <div class="fridge-trim">
+                <div class="fridge">
+                    <div class="freezer-seam"></div>
+                    <div class="door-outline">
+                        <div class="door-trim">
+                            <div class="door-panel">
+                                <div class="handle">
+                                    <div class="handle-shine"></div>
+                                </div>
+                                <div class="brand-plate">FROST BUDDY</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feet">
+                        <div class="foot"></div>
+                        <div class="foot"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
     </div>
     <button type="button" id="save-btn">Save canvas</button>
 
     <script src="html2canvas.js" type="module"></script>
     <script src="scripts.js" type="module"></script>
 </body>
+
 </html>
